@@ -17,7 +17,7 @@ def move_contents(src, dest):
 
 
 def main():
-    print("Hello from files-organizer!")
+    print("Hello from files-organizer")
 
 
 if __name__ == "__main__":
