@@ -2,6 +2,7 @@ extensions_dict = {
     "exe_file": ".exe",
     "zip_file": ".zip",
     "rar_file": ".rar",
+    "tar_file": ".tar",
     "txt_file": ".txt",
     "python_file": ".py",
     "c_files": ".c",
