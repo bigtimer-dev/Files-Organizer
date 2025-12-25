@@ -1,4 +1,5 @@
 import os
+from os.path import isdir
 import shutil
 from extensions import extensions_dict
 
@@ -10,15 +11,23 @@ def list_dir(dir):
         raise Exception(f"Error: {dir} is not a directory")
 
 
-def move_contents(src, dest):
-    if os.path.exists(dest):
-        contents = list_dir(src)
-        for content in contents:
-            full_path_to_content = os.path.join(src, content)
-            for extension in extensions_dict.values():
-                if full_path_to_content.endswith(extension):
-
-
+def organize(src):
+    list_files = list_dir(src)
+    for file in list_files:
+        if os.path.isdir(file):
+            folder_dest = os.path.join(src, "folder_container")
+            os.makedirs(folder_dest, exist_ok=True)
+            folder_src = os.path.join(src, file)
+            print(f"Moving:{folder_src} to {folder_dest}")
+            shutil.move(folder_src, folder_dest)
+        elif os.path.isfile(file):
+            g_extention = file.split(".")
+            container = g_extention[1] + "_container"
+            file_dest = os.path.join(src, container)
+            os.makedirs(file_dest, exist_ok=True)
+            file_src = os.path.join(src, file)
+            print(f"Moving: {file_src} to {file_dest}")
+            shutil.move(file_src, file_dest)
 
 
 def main():
