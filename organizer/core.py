@@ -43,8 +43,8 @@ def duplicate_resolver(file_dest, file):
 def console_print(
     skip_files, conflict_resolve, file_moved, folder_moved, folder_created
 ):
-    print("SUMMARY")
-    print("_______")
+    print("\nSUMMARY")
+    print("--------")
     print(f"skip_files: {skip_files}")
     print(f"conflicts_resolve: {conflict_resolve}")
     print(f"files_moved: {file_moved}")
@@ -68,22 +68,24 @@ def organize(src, dry_run=False, verbose=False):
         path_to_file = os.path.join(src, file)
         if os.path.isdir(path_to_file):
             folder_dest = os.path.join(src, "folder_container")
+            if not os.path.exists(folder_dest):
+                folder_created += 1
             confirm_dir(folder_dest, dry_run, verbose)
-            folder_created += 1
             final_dest, folder_conflict = duplicate_resolver(folder_dest, file)
             conflict_resolve += folder_conflict
             confirm_move(path_to_file, final_dest, dry_run, verbose)
             folder_moved += 1
 
-        elif os.path.isfile(file):
+        elif os.path.isfile(path_to_file):
             name, ext = os.path.splitext(file)
             if not ext:
                 container = "no_extension_container"
             else:
                 container = ext[1:].lower() + "_container"
             file_dest = os.path.join(src, container)
+            if not os.path.exists(file_dest):
+                folder_created += 1
             confirm_dir(file_dest, dry_run, verbose)
-            folder_created += 1
             final_dest, files_confict = duplicate_resolver(file_dest, file)
             conflict_resolve += files_confict
             confirm_move(path_to_file, final_dest, dry_run, verbose)

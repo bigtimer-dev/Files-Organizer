@@ -1,7 +1,26 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
 [project]
 name = "files-organizer"
 version = "0.1.0"
-description = "Add your description here"
+description = "Organize files into folders by extension"
 readme = "README.md"
-requires-python = ">=3.13"
-dependencies = []
+requires-python = ">=3.8"
+license = { text = "MIT" }
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Environment :: Console",
+  "Operating System :: OS Independent",
+]
+authors = [{ name = "bigtimer-dev (Alvin Noboa)", email = "aljnoma@gmail.com" }]
+
+[project.urls]
+Homepage = "https://github.com/bigtimer-dev/Files-Organizer"
+Repository = "https://github.com/bigtimer-dev/Files-Organizer"
+
+[project.scripts]
+organize = "organizer.cli:main"
+
