@@ -1,6 +1,6 @@
 # Files Organizer 📂
 
-A simple and safe-ish command-line tool to organize files in a directory by their file extensions.
+Simple and safe-ish command-line tool to organize files in a directory by their file extensions.
 
 Files are moved into folders like `pdf_container`, `jpg_container`, `zip_container`, etc.  
 Folder directories are grouped into a `folder_container`.
