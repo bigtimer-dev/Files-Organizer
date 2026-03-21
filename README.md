@@ -11,7 +11,7 @@ Folder directories are grouped into a `folder_container`.
 
 - Organizes files by extension
 - Groups directories separately
-- Safe **dry-run mode** (no changes made)
+- **dry-run mode**
 - Automatic duplicate file resolution
 - Verbose logging option
 - Cross-platform (Linux, macOS, Windows)
